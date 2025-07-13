@@ -26,6 +26,9 @@ fi
 # until [[ "$edits" == "exit\n" || $x -eq 15 ]]; do
 until [[ "$edits" == "" ]]; do
     edit=$(printf "%s" "$edits" | dmenu -c -l 10 )
+    if [[ "$edit" == "no edits" || "$edit" == "e" || "$edit" == "exit" ]]; then
+        exit
+    fi
     cd $edit
 
     cd "$path/$edit" || continue
