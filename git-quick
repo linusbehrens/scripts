@@ -2,7 +2,7 @@
 
 path=$HOME/.repos
 repos=$(ls -1 $path)
-edits=""
+edits=$''
 x=1
 cd $path
 
@@ -17,6 +17,9 @@ for repo in $repos; do
     cd ..
 done
 
+if [[ "$edits" == "" ]]; then
+    edits="no edits"
+fi
 # echo $edits
 # printf "%s" "$edits"
 
