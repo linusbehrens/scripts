@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd /home/linus/code/scripts/menu/dmenu/
+# local path = $HOME/code/scripts/menu/dmenu/
+# local path = $HOME/code/scripts/menu/
 
 awk -F, '{
   if ($2 != "") {
@@ -8,7 +9,7 @@ awk -F, '{
   } else {
     print $1
   }
-}' /home/linus/code/scripts/menu/dmenu/work.csv | dmenu -i -l 5 | while read selection; do
+}' $HOME/code/scripts/websites.csv | dmenu -c -i -l 10 | while read selection; do
   if [ -z "$selection" ]; then
     exit 0
   fi
@@ -16,8 +17,8 @@ awk -F, '{
     $2 == sel { print $1; found=1 }
     $2 == "" && $1 == sel { print $1; found=1 }
     END { if (!found) exit 1 }
-    ' /home/linus/code/scripts/menu/dmenu/work.csv | while read dir; do
-    nvim "$dir" >/dev/null 2>&1 &
+  ' $HOME/code/scripts/websites.csv | while read url; do
+    xdg-open "$url" >/dev/null 2>&1 &
   done
 done
 

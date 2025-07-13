@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# local path = $HOME/code/scripts/menu/dmenu/
-# local path = $HOME/code/scripts/menu/
+cd /home/linus/code/scripts/
 
 awk -F, '{
   if ($2 != "") {
@@ -9,7 +8,7 @@ awk -F, '{
   } else {
     print $1
   }
-}' $HOME/code/scripts/menu/websites.csv | dmenu -c -i -l 10 | while read selection; do
+}' /home/linus/code/scripts/work.csv | dmenu -i -l 5 | while read selection; do
   if [ -z "$selection" ]; then
     exit 0
   fi
@@ -17,8 +16,9 @@ awk -F, '{
     $2 == sel { print $1; found=1 }
     $2 == "" && $1 == sel { print $1; found=1 }
     END { if (!found) exit 1 }
-  ' $HOME/code/scripts/menu/websites.csv | while read url; do
-    xdg-open "$url" >/dev/null 2>&1 &
+    ' /home/linus/code/scripts/work.csv | while read dir; do
+    tmux send-keys -t 0:1.1 "cd $dir" C-m
+    tmux send-keys -t 0:1.1 "nvim ." C-m
   done
 done
 
