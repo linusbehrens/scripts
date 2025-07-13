@@ -8,10 +8,8 @@ cd $path
 
 for repo in $repos; do
     cd $repo
-    echo $(pwd)
-    echo "pre frist --porcelain"
+    # echo $(pwd)
     result=$(git status --porcelain)
-    echo "after frist --porcelain"
     if [[ -n $result ]]; then
         edits+="$repo"
         edits+=$'\n'
@@ -19,13 +17,16 @@ for repo in $repos; do
     cd ..
 done
 
-echo $edits
-printf "%s" "$edits"
+# echo $edits
+# printf "%s" "$edits"
 
-until [[ "$edits" == "exit\n" || $x -eq 5 ]]; do
+# until [[ "$edits" == "exit\n" || $x -eq 15 ]]; do
+until [[ "$edits" == "exit\n" ]]; do
     edit=$(printf "%s" "$edits" | dmenu -c -l 10 )
     cd $edit
     if [[ "$edit" == "exit" || -z "$edit" ]]; then
+        exit
+        echo $edit
         exit
     fi
     cd "$path/$edit" || continue
