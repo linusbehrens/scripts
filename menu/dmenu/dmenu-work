@@ -1,12 +1,14 @@
 #!/bin/bash
 
+cd /home/linus/code/scripts/menu/dmenu/
+
 awk -F, '{
   if ($2 != "") {
     print $2
   } else {
     print $1
   }
-}' /home/linus/code/scripts/menu/directories.csv | dmenu -i -l 5 -p $(pwd)| while read selection; do
+}' /home/linus/code/scripts/menu/dmenu/work.csv | dmenu -i -l 5 | while read selection; do
   if [ -z "$selection" ]; then
     exit 0
   fi
@@ -14,8 +16,8 @@ awk -F, '{
     $2 == sel { print $1; found=1 }
     $2 == "" && $1 == sel { print $1; found=1 }
     END { if (!found) exit 1 }
-    ' /home/linus/code/scripts/menu/directories.csv | while read dir; do
-    cd "$dir" >/dev/null 2>&1 &
+    ' /home/linus/code/scripts/menu/dmenu/work.csv | while read dir; do
+    nvim "$dir" >/dev/null 2>&1 &
   done
 done
 
