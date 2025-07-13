@@ -2,7 +2,7 @@
 
 path=$HOME/.repos
 repos=$(ls -1 $path)
-edits=$'exit\n'
+edits=$''
 x=1
 cd $path
 
@@ -17,11 +17,14 @@ for repo in $repos; do
     cd ..
 done
 
+if [[ "$edits" == "" ]]; then
+    edits="no edits"
+fi
 # echo $edits
 # printf "%s" "$edits"
 
 # until [[ "$edits" == "exit\n" || $x -eq 15 ]]; do
-until [[ "$edits" == "exit\n" ]]; do
+until [[ "$edits" == "" ]]; do
     edit=$(printf "%s" "$edits" | dmenu -c -l 10 )
     cd $edit
     if [[ "$edit" == "exit" || -z "$edit" ]]; then
