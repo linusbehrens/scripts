@@ -2,7 +2,7 @@
 
 path=$HOME/.repos
 repos=$(ls -1 $path)
-edits=$'exit\n'
+edits=""
 x=1
 cd $path
 
@@ -21,14 +21,10 @@ done
 # printf "%s" "$edits"
 
 # until [[ "$edits" == "exit\n" || $x -eq 15 ]]; do
-until [[ "$edits" == "exit\n" ]]; do
+until [[ "$edits" == "" ]]; do
     edit=$(printf "%s" "$edits" | dmenu -c -l 10 )
     cd $edit
-    if [[ "$edit" == "exit" || -z "$edit" ]]; then
-        exit
-        echo $edit
-        exit
-    fi
+
     cd "$path/$edit" || continue
     commit_msg=$(git status --porcelain | dmenu -i -c -l 10 -p "$edit")
     if [[ -n "$commit_msg" ]]; then
