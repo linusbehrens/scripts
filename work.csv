@@ -4,4 +4,7 @@
 /home/linus/code/scripts/,scripts
 /home/linus/code/personalwebsite/content/posts/,blog
 /home/linus/obsidian/,obsidian
+/home/linus/.config/nvim/,nvim config
+/home/linus/sources/dwm/,dwm
+/home/linus/dotfiles/.config/bash/,bashrc
 
