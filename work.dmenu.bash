@@ -18,7 +18,6 @@ awk -F, '{
     END { if (!found) exit 1 }
     ' /home/linus/code/scripts/work.csv | while read dir; do
     tmux send-keys -t main:work.1 "cd $dir" C-m
-    tmux send-keys -t main:work.1 "nvim ." C-m
   done
 done
 
