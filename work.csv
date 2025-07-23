@@ -1,13 +1,13 @@
-/home/linus/obsidian/,obsidian
-/home/linus/Documents/tutorials/,tutorials
-/home/linus/Documents/Unterlagen/,unterlagen
-/home/linus/Documents/studium/,studium
-/home/linus/code/personalwebsite/content/posts/,blog
-/home/linus/sources/dwm/,dwm
-/home/linus/sources/dmenu/,dmenu
-/home/linus/code/scripts/,scripts
-/home/linus/.config/nvim/,nvim config
-/home/linus/dotfiles/.config/bash/,bashrc config
-/home/linus/dotfiles/.config/tmux/,tmux config
-/home/linus/Mail/mail@linus-behrens.de/,mail mail@linus-behrens.de
-
+$HOME/obsidian/,obsidian
+$HOME/Documents/tutorials/,tutorials
+$HOME/Documents/Unterlagen/,unterlagen
+$HOME/Documents/studium/,studium
+$HOME/code/personalwebsite/content/posts/,blog
+$HOME/sources/dwm/,dwm
+$HOME/sources/dmenu/,dmenu
+$HOME/code/scripts/,scripts
+$HOME/.config/nvim/,nvim config
+$HOME/dotfiles/.config/bash/,bashrc config
+$HOME/dotfiles/.config/tmux/,tmux config
+$HOME/Mail/mail@linus-behrens.de/,mail mail@linus-behrens.de
+$HOME/dotfiles,dotfiles

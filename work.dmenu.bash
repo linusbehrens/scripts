@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/linus/code/scripts/
+cd $HOME/code/scripts/
 
 awk -F, '{
   if ($2 != "") {
