@@ -33,7 +33,7 @@ until [[ "$edits" == "" ]]; do
     source_repos
     edit=$(printf "%s" "$edits" | dmenu -c -l 10 )
 
-    if [[ "$edit" == "no edits" || "$edit" == "e" || "$edit" == "▌ exit" ]]; then
+    if [[ -z "$edit" || "$edit" == "no edits" || "$edit" == "e" || "$edit" == "▌ exit" ]]; then
         echo "$edit"
         exit 0
         exit 0

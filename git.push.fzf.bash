@@ -26,7 +26,7 @@ fi
 # until [[ "$edits" == "exit\n" || $x -eq 15 ]]; do
 until [[ "$edits" == "" ]]; do
     edit=$(printf "%s" "$edits" | fzf --tmux 80%,80% --preview 'cd {} && git status --porcelain' --print-query)
-    if [[ "$edit" == "e" || "$edit" == "exit" ]]; then
+    if [[ -z "$edit" || "$edit" == "e" || "$edit" == "exit" ]]; then
         exit 0
     fi
 
