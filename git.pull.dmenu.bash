@@ -14,9 +14,7 @@ source_repos () {
     for repo in $repos; do
         cd $repo
         echo "$repo"
-
         result=$(git fetch origin && git diff --name-status HEAD...origin/main --diff-filter=ACMRT)
-
         if [[ -n $result ]]; then
             edits+="$repo"
             edits+=$'\n'
@@ -49,7 +47,6 @@ while true; do
         echo "git pull $edit"
         git pull 
     fi
-
 done
 
 

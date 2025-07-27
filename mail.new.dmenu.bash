@@ -11,7 +11,7 @@ for mail in $mails; do
     cd $path/mail@linus-behrens.de
 
     # echo $(pwd)
-    mlist -N . | mseq -S
+    mlist -N $MAIL | mseq -S
     result=$(mscan -I -f '%F %16D %25f %s')
     # TODO: nicht mit ls sondern mblaze:
     # result=account/time/sender/Betreff
@@ -25,7 +25,7 @@ if [[ "$news" == "" ]]; then
     news="no news"
 fi
 
-printf "%s" "$news" | dmenu -c -l 10 > /dev/null
+printf "%s" "$(mscan -I -f '%F %16D %25f %s')" | dmenu -c -l 10 > /dev/null
 
 # until [[ "$news" == "" ]]; do
 #     new=$(printf "%s" "$news" | dmenu -c -l 10 )
